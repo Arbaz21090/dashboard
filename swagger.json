@@ -1,0 +1,190 @@
+{
+    "openapi":"3.0.0",
+"info":{
+    "description":"This is api for user",
+    "version":"__version__"
+},
+"tags":[
+    {
+        "name":"PUBLIC ROUTE",
+        "description":"PUBLIC ROUTE"
+    }
+],
+"paths":{
+    "/health":{
+        "summary":"Testing App health",
+        "get":{
+            "description":"Testing health",
+            "tags":["PUBLIC ROUTE"],
+            "responses":{
+                "200":{
+                    "description":"health ok"
+                },
+                "400":{
+                    "description":"health Not ok"
+                }
+            }
+        }
+    },
+    "/users":{
+        "summary":"Testing Users",
+        "get":{
+            "description":"Users Details",
+            "tags":["PUBLIC ROUTE"],
+            "parameters":[
+                {
+                    "in":"query",
+                    "name":"role",
+                    "schema":{
+                        "type":"string"
+                    },
+                    "description":"Choose user on the basis of role"
+                },
+                {
+                   "in":"query",
+                   "name":"city",
+                   "schema":{
+                    "type":"string"
+                   },
+                   "description":"Choose user on the basis of city"
+                }
+            ],
+            "responses":{
+                "200":{
+                    "description":"health ok"
+                },
+                "400":{
+                    "description":"health Not ok"
+                }
+            }
+        }
+    },
+    "/users/{id}":{
+        "summary":"Testing Users",
+        "get":{
+            "description":"Users Details",
+            "tags":["PUBLIC ROUTE"],
+            "parameters":[
+                {
+                    "in":"path",
+                    "name":"id",
+                    "required":true,
+                    "schema":{
+                        "type":"string"
+                    },
+                    "description":"Enter User Id"
+                }
+               
+            ],
+            "responses":{
+                "200":{
+                    "description":"health ok"
+                },
+                "400":{
+                    "description":"health Not ok"
+                }
+            }
+        }
+    },
+    "/addUser":{
+        "summary":"Add Users",
+        "post":{
+            "description":"Adding User",
+            "tags":["PUBLIC ROUTE"],
+            "requestBody":{
+                "required":true,
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type":"object",
+                            "id":"string"
+                        },
+                        "example":{
+                            "name":"Lavish",
+                            "city":"venice",
+                            "phone":9761258450,
+                            "role":"user",
+                            "isActive":true
+                        }
+                    }
+                }
+            },
+          
+            "responses":{
+                "200":{
+                    "description":"health ok"
+                },
+                "400":{
+                    "description":"health Not ok"
+                }
+            }
+        }
+    },
+    "/updateUser":{
+        "summary":"Update user",
+        "put":{
+            "description":"Update User",
+            "tags":["PUBLIC ROUTE"],
+            "requestBody":{
+                "required":true,
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type":"object",
+                            "id":"string"
+                        },
+                        "example":{
+                            "_id":"",
+                            "name":"Lavish",
+                            "city":"venice",
+                            "phone":9761258450,
+                            "role":"user",
+                            "isActive":true
+                        }
+                    }
+                }
+            },
+          
+            "responses":{
+                "200":{
+                    "description":"health ok"
+                },
+                "400":{
+                    "description":"health Not ok"
+                }
+            }
+        }
+    },
+    "/deleteUser":{
+        "summary":"Delete user",
+        "delete":{
+            "description":"Delete User",
+            "tags":["PUBLIC ROUTE"],
+            "requestBody":{
+                "required":true,
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type":"object",
+                            "id":"string"
+                        },
+                        "example":{
+                            "_id":""
+                           
+                        }
+                    }
+                }
+            },
+          
+            "responses":{
+                "200":{
+                    "description":"health ok"
+                },
+                "400":{
+                    "description":"health Not ok"
+                }
+            }
+        }
+    }
+}
+}
